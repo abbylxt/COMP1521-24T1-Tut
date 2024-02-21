@@ -1,7 +1,7 @@
 # Squares a number, unless its square is too big for a 32-bit integer.
 # If it is too big, prints an error message instead.
 
-# Constants
+#CONSTANT
 SQUARE_MAX = 46340
 
 main:
@@ -11,18 +11,18 @@ main:
 
 	li	$v0, 5
 	syscall
-	move	$t0, $v0		# $t0 = x
+	move	$t0, $v0
 
 if_condi:
-	ble	$t0, SQUARE_MAX, else_square
-
+	ble	$t0, SQUARE_MAX, else_statement
+	
 	li	$v0, 4
 	la	$a0, too_big_str
 	syscall
 
 	b	else_end
 
-else_square:
+else_statement:
 	mul	$t1, $t0, $t0
 
 	li	$v0, 1
@@ -35,10 +35,9 @@ else_square:
 
 else_end:
 
+epilogue:
 	li	$v0, 0
 	jr	$ra
-
-main_end:
 
 .data
 

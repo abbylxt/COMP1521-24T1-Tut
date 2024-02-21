@@ -12,13 +12,12 @@ int main(void) {
     scanf("%d", &x);
 
     if_condi:
-    if (x <= SQUARE_MAX) goto else_square;
+    if (x <= SQUARE_MAX) goto else_statement;
 
     printf("square too big for 32 bits\n");
 
     goto else_end;
-
-    else_square:
+    else_statement:
     y = x * x;
     printf("%d\n", y);
 
